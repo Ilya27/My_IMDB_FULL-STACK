@@ -3,6 +3,9 @@ import person_placeholder from '../../../../assets/img/person_placeholder.png';
 import placeholder from '../../../../assets/img/placeholder.jpg';
 import {Link} from 'react-router-dom';
 import './style.scss';
+import { Provider } from 'react-redux';
+import store from '../../../../store';
+import { AddButtonConnectPerson } from '../../../../components';
 class InfoAboutPerson extends Component {
     state={
         info:[],
@@ -129,6 +132,9 @@ printKnowForShow(value){
                             <h1>{info.name}</h1>
                             <h3>Biography</h3>
                             <p>{info.biography}</p>
+                            <Provider store = {store }>
+                                <AddButtonConnectPerson info={info}/>
+                            </Provider>
                         </div>
                     </div>
                 </div>

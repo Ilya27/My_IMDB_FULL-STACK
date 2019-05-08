@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const Movie = require('../models/Movie');
+const Show = require('../models/Show');
 
 router.post('/add', function(req, res) {
-    Movie.findOne({
+    Show.findOne({
         id: req.body.id,
         userId:req.body.userId,
     }).then(movie => {
@@ -14,30 +14,30 @@ router.post('/add', function(req, res) {
         }
         else {
             console.log(req.body);
-            const newMovie = new Movie({
+            const newShow = new Show({
                 userId:req.body.userId,
-                title: req.body.title,
+                name: req.body.name,
                 poster_path: req.body.poster_path,
                 runtime: req.body.runtime,
                 id:req.body.id,
                 type:req.body.type
             });
-            newMovie
+            newShow
             .save()
-            .then(movie => {
-                res.json(movie)
+            .then(show => {
+                res.json(show)
             }); 
         }
     });
 });
 
-router.get("/getMovies/List", function(req, res){
-    Movie.find({
+router.get("/getShow/List", function(req, res){
+    Show.find({
         userId: req.query.userId,
         type: req.query.type
-    }, function(err, movie){
+    }, function(err, show){
         if(err) return console.log(err);
-        res.send(movie);
+        res.send(show);
     });
 });
 

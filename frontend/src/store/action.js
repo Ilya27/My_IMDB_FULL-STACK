@@ -1,4 +1,5 @@
 import {ACTION_TYPES} from './constants';
+import axios from 'axios'
 
 export const NowPlayingMovies = nowPlayingMovies => ({
     type: ACTION_TYPES.SET_PLAYING_FILMS,
@@ -35,6 +36,7 @@ export const getSearchInfo = search_info => ({
     type: ACTION_TYPES.SEARCH_INFO,
     payload: {search_info},
 })
+
 
 
 
@@ -81,3 +83,7 @@ export const searchInfo = (value) => dispatch => {
     .then(data=>data.json())
     .then(data=>{dispatch(getSearchInfo(data))})
 }
+
+
+
+

@@ -16,7 +16,7 @@ class Navbar extends Component {
         console.log(user);
         const authLinks = (
             <ul>
-            <Link to={`/profile/${user.id}`}>
+            <Link to={`/profile`}>
             <img src={user.avatar} alt={user.name} title={user.name}
                 className="rounded-circle"
                 style={{ width: '25px', marginRight: '5px'}}/>

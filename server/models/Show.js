@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const MovieSchema = new Schema({
+const ShowSchema = new Schema({
     userId: {
         type: String,
     },
-    title: {
+    name: {
         type: String,
     },
     poster_path: {
@@ -23,5 +23,5 @@ const MovieSchema = new Schema({
     }
 });
 
-const Movie = mongoose.model('movies', MovieSchema);
-module.exports = Movie;
+const Show = mongoose.model('shows', ShowSchema);
+module.exports = Show;

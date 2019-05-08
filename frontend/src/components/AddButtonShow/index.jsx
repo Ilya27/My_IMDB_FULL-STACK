@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -10,10 +9,13 @@ class AddButton extends Component {
             fullInfo[key] = movie[key];
         }
         fullInfo.userId=userId;
-        axios.post('http://localhost:4000/api/movies/add', fullInfo)
+        fullInfo.type="Want to watch";
+        console.log('HII');
+        
+        axios.post('http://localhost:4000/api/shows/add', fullInfo)
             .then()
             .catch(err => {
-                alert('You have already added this movie')
+                alert('You have already added this show')
         }); 
     }
     render() {
@@ -44,7 +46,7 @@ const mapStateToProps = (state) => ({
 })
 
 const WrapperAddButton=connect(mapStateToProps,null)(withRouter(AddButton));
-class AddButtonConnect extends Component {
+class AddButtonConnectShow extends Component {
     render() {
         return(
         <WrapperAddButton info={this.props.info}/>
@@ -53,4 +55,4 @@ class AddButtonConnect extends Component {
 }
 
 
-export  default AddButtonConnect;
+export  default AddButtonConnectShow;

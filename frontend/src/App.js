@@ -4,7 +4,7 @@ import {Header,Footer} from './Layout/index.js'
 import {Router, Route,Switch} from 'react-router-dom';
 import history from './components/history';
 import { WrapperSearchForm } from './components';
-import { MoviesPage,TvShowsPage,MainWrapper,PeoplePage,WrapperSearchPage,ProfilePage} from './screens';
+import { MoviesPage,TvShowsPage,MainWrapper,PeoplePage,WrapperSearchPage,ProfilePage,WrapperPage} from './screens';
 import Register from './components/Register.js';
 import LoginPage from './components/Login';
 import { Provider } from 'react-redux';
@@ -23,7 +23,7 @@ class App extends Component {
                 <Route path="/show/"  component={TvShowsPage} />
                 <Route path="/person/"  component={PeoplePage} />
                 <Route path="/search/"  component={WrapperSearchPage} />
-                <Route exact path="/profile/:id"  component={ProfilePage} />
+                <Route path="/profile/"  component={WrapperPage} />
                 <Provider store = { store }>
                   <Route exact path="/register/" component={ Register } history={history} />
                   <Route exact path="/login/" component={ LoginPage } history={history} />

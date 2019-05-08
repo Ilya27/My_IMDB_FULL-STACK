@@ -160,7 +160,9 @@ const config = require('./db/db');
 const fetch = require('node-fetch');
 const cors = require('cors');
 const users = require('./routes/user'); 
-const movies = require('./routes/movie'); 
+const movies = require('./routes/movie');
+const shows = require('./routes/show');  
+const persons = require('./routes/person');  
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
     err => { console.log('Can not connect to the database'+ err)}
@@ -177,6 +179,8 @@ app.use(cors());
 
 app.use('/api/users', users);
 app.use('/api/movies', movies);
+app.use('/api/shows', shows);
+app.use('/api/persons', persons);
 
 app.get('/upcoming_movies', (req, res) => {	
   fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=dcf025b227cc290e6845162a216870ff&language=en-US&page=1`)
@@ -193,7 +197,6 @@ app.get('/upcoming_shows', (req, res) => {
     res.send(data);  
   })
 })
-
 app.get('/:type/:state/:activePage', (req, res) => {	
   let {type,state,activePage}=req.params;
   fetch(`https://api.themoviedb.org/3/${type}/${state}?api_key=dcf025b227cc290e6845162a216870ff&language=en-US&page=${activePage}`)
@@ -214,7 +217,7 @@ app.get('/:value', (req, res) => {
 
 
 
-const port =4000;
+const port = 4000;
 
 app.listen(port,()=>{
   console.log(`Live  on port ${port}`)
