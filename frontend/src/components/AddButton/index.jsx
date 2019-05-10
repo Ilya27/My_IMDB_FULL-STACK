@@ -3,19 +3,21 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 class AddButton extends Component {
-    handleClick(movie,userId) {
+    handleClick(movie,userId,type) {
         let fullInfo={};
         for (var key in movie) {
             fullInfo[key] = movie[key];
         }
         fullInfo.userId=userId;
-        fullInfo.type="Want to watch";
-        console.log('HII');
-        
-        axios.post('http://localhost:4000/api/shows/add', fullInfo)
+        if(type==='persons'){
+            fullInfo.type='Favorite';  
+        }else{
+            fullInfo.type="Want to watch";
+        }
+        axios.post(`http://localhost:4000/api/${type}/add`, fullInfo)
             .then()
             .catch(err => {
-                alert('You have already added this show')
+                alert('You have already added this person')
         }); 
     }
     render() {
@@ -24,7 +26,7 @@ class AddButton extends Component {
         
         const authLinks = (
             <ul>
-                <button onClick={() =>this.handleClick(this.props.info,user.id)}>CLICK</button>
+                <button onClick={() =>this.handleClick(this.props.info,user.id,this.props.type)}>CLICK</button>
             </ul>
         )
         const guestLinks = (
@@ -46,13 +48,13 @@ const mapStateToProps = (state) => ({
 })
 
 const WrapperAddButton=connect(mapStateToProps,null)(withRouter(AddButton));
-class AddButtonConnectShow extends Component {
+class AddButtonConnect extends Component {
     render() {
         return(
-        <WrapperAddButton info={this.props.info}/>
+        <WrapperAddButton info={this.props.info} type={this.props.type}/>
         )
     }
 }
 
 
-export  default AddButtonConnectShow;
+export  default AddButtonConnect;

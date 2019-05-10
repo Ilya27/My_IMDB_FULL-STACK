@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import moment from'moment' ;
 import person_placeholder from '../../../../assets/img/person_placeholder.png';
 import placeholder from '../../../../assets/img/placeholder.jpg';
-import { AddButtonConnectShow } from '../../../../components';
+import { AddButtonConnect } from '../../../../components';
 import './style.scss';
 import { Provider } from 'react-redux';
 import store from '../../../../store';
@@ -142,7 +142,7 @@ class InfoAboutShow extends Component {
                         {this.printCrew(crew,info.created_by)}
                     </div>
                     <Provider store = {store }>
-                        <AddButtonConnectShow info={info}/>
+                        <AddButtonConnect info={info} type={'shows'}/>
                     </Provider>
                 </div>
             </div>

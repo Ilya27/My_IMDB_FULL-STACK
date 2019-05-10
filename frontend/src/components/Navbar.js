@@ -13,7 +13,6 @@ class Navbar extends Component {
 
     render() {
         const {isAuthenticated, user} = this.props.auth;
-        console.log(user);
         const authLinks = (
             <ul>
             <Link to={`/profile`}>

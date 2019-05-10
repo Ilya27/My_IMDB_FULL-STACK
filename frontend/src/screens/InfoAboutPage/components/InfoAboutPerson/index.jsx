@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import './style.scss';
 import { Provider } from 'react-redux';
 import store from '../../../../store';
-import { AddButtonConnectPerson } from '../../../../components';
+import { AddButtonConnect } from '../../../../components';
 class InfoAboutPerson extends Component {
     state={
         info:[],
@@ -133,7 +133,7 @@ printKnowForShow(value){
                             <h3>Biography</h3>
                             <p>{info.biography}</p>
                             <Provider store = {store }>
-                                <AddButtonConnectPerson info={info}/>
+                                <AddButtonConnect info={info} type={'persons'}/>
                             </Provider>
                         </div>
                     </div>

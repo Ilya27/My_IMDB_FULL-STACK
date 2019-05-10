@@ -4,7 +4,7 @@ import person_placeholder from '../../../../assets/img/person_placeholder.png';
 import placeholder from '../../../../assets/img/placeholder.jpg';
 import './style.scss';
 import moment from'moment' ;
-import { AddButtonConnectMovie } from '../../../../components';
+import { AddButtonConnect} from '../../../../components';
 import { Provider } from 'react-redux';
 import store from '../../../../store';
 class InfoAboutMovie extends Component {
@@ -135,7 +135,7 @@ class InfoAboutMovie extends Component {
                             {this.printCrew(crew)}
                         </div>
                         <Provider store = {store }>
-                            <AddButtonConnectMovie info={info}/>
+                            <AddButtonConnect info={info} type={'movies'}/>
                         </Provider>
                     </div>
                 </div>

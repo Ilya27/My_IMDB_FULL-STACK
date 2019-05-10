@@ -3,13 +3,30 @@ import { Provider, connect } from 'react-redux';
 import {getMovieWatchList} from '../../../../actions/getMovie';
 import {getShowWatchList} from '../../../../actions/getShow';
 import store from '../../../../store'
+import {MoveButtonConnect} from '../../../../components/index'
 class PageInfo extends Component{
-
-    componentDidMount(){
-        const {getMovieWatchList,getShowWatchList,auth}=this.props;
-        getMovieWatchList(auth.user.id);
-        getShowWatchList(auth.user.id);
+    state={
+        render:''
     }
+    componentDidMount(){
+        const {getMovieWatchList,getShowWatchList,auth,movie,show}=this.props;
+        getMovieWatchList(auth.user.id);
+        // getShowWatchList(auth.user.id);
+    }
+
+
+    // componentDidUpdate(prevProps, prevState, snapshot){
+    //     // const {getMovieWatchList,getShowWatchList,auth,movie,show}=prevProps;
+    //     // getMovieWatchList(auth.user.id);
+    // }
+
+    static getDerivedStateFromProps(props, state){
+        console.log("getDerivedStateFromProps");
+        console.log(props);
+        
+    
+    }
+
     renderWatchListMovie(watchListMovie){
         const watchListMovieArray=[];
         if(watchListMovie){
@@ -17,6 +34,7 @@ class PageInfo extends Component{
             watchListMovieArray.push(
                 <div className='watchListMOvie'>
                   <p>{item.title}</p>
+                  <MoveButtonConnect info={item}/>
                 </div>
             )
         })
@@ -25,7 +43,6 @@ class PageInfo extends Component{
     }
     renderWatchListShow(watchListShow){
         const watchListShowArray=[];
-        console.log(watchListShow);
         if(watchListShow){
             watchListShow.map(item=>{
                 watchListShowArray.push(
@@ -42,7 +59,6 @@ class PageInfo extends Component{
         const {movie,show}=this.props;
         const {watchListMovie}=movie;
         const {watchListShow}=show;
-        console.log(this.props);
         return(
             <div>
                  <h2>Movies to watch</h2>

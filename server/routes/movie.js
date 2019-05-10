@@ -13,7 +13,6 @@ router.post('/add', function(req, res) {
             });
         }
         else {
-            console.log(req.body);
             const newMovie = new Movie({
                 userId:req.body.userId,
                 title: req.body.title,
@@ -35,12 +34,31 @@ router.get("/getMovies/List", function(req, res){
     Movie.find({
         userId: req.query.userId,
         type: req.query.type
-    }, function(err, movie){
+    }, async function(err, movie){
         if(err) return console.log(err);
-        res.send(movie);
+        console.log(movie);
+        await res.send(movie);
+        
     });
 });
 
+
+
+router.put("/updateMovies/List", function(req, res){
+    Movie.findOne({
+        userId: req.body.userId,
+        title:req.body.title,
+    },function(err, movie){
+        if(err) return console.log(err);
+        movie.type="Watched";
+        movie
+        .save()
+        .then(movie=>{
+            console.log(movie);
+            res.json(movie);
+        })
+    });
+});
 
 
 

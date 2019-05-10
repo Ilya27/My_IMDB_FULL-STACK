@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {SET_WATCHLIST_SHOW,SET_FAVORITE_SHOW,SET_WATCHED_SHOW } from '../actions/types';
 export const getShowWatchList = (id) => dispatch => {
-    console.log(id);
     axios.get('http://localhost:4000/api/shows/getShow/List',{
         params: {
         userId: id,

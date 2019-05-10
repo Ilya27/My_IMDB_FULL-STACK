@@ -1,14 +1,14 @@
 import axios from 'axios';
 import {SET_WATCHLIST,SET_FAVORITE,SET_WATCHED } from '../actions/types';
 export const getMovieWatchList = (id) => dispatch => {
-    console.log(id);
     axios.get('http://localhost:4000/api/movies/getMovies/List',{
         params: {
         userId: id,
         type: "Want to watch"}
       })
       .then(data=>{
-          dispatch(setWatchList(data.data))
+          dispatch(setWatchList(data.data));
+          return "done"
         });
     }
 
@@ -27,15 +27,12 @@ export const getMovieFavoriteList = (id) => dispatch => {
         
 
  export const getMovieWatchedList = (id) => dispatch => {
-     console.log(id);
-     
      axios.get('http://localhost:4000/api/movies/getMovies/List',{
          params: {
             userId: id,
             type: "Watched"}
         })
         .then(data=>{
-            console.log(data.data);
             dispatch(setWatchedList(data.data))
         });
     }
@@ -43,6 +40,7 @@ export const getMovieFavoriteList = (id) => dispatch => {
         
 
 export const setWatchedList = (watchedlist)=> {
+    
     return {
         type: SET_WATCHED,
         payload: {watchedlist},

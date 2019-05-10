@@ -23,7 +23,6 @@ if(localStorage.jwtToken) {
 
   class Header extends Component {
   render() {
-    console.log(store);
     return (
         <header className='header'> 
           <Menu/>
