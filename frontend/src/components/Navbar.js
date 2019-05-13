@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authentication';
 import { withRouter } from 'react-router-dom';
+import './navbar.scss'
 class Navbar extends Component {
 
     onLogout(e) {
@@ -13,26 +14,23 @@ class Navbar extends Component {
 
     render() {
         const {isAuthenticated, user} = this.props.auth;
-        console.log(user);
         const authLinks = (
-            <ul>
-            <Link to={`/profile/${user.id}`}>
-            <img src={user.avatar} alt={user.name} title={user.name}
-                className="rounded-circle"
-                style={{ width: '25px', marginRight: '5px'}}/>
-            </Link>
-                <Link href="" className="nav-link" onClick={this.onLogout.bind(this)}>Logout</Link>
-            </ul>
+            <div className='authLinks'>
+                <Link to={`/profile`}>
+                    <img src={user.avatar} alt={user.name} title={user.name}
+                        className="rounded-circle"
+                        style={{ width: '25px', marginRight: '5px'}}/>
+                </Link>
+                <div className="link_Logout">
+                    <Link href=""  onClick={this.onLogout.bind(this)}>Logout</Link>
+                </div>
+            </div>
         )
       const guestLinks = (
-        <ul>
-            <li>
-                <Link to="/register">Sign Up</Link>
-            </li>
-            <li>
-                <Link  to="/login">Sign In</Link>
-            </li>
-        </ul>
+        <div className='guestLinks'>
+            <Link to="/register">Sign Up</Link>
+            <Link  to="/login">Sign In</Link>
+        </div>
       )
         return(
             <nav>

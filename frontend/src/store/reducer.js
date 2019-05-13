@@ -54,7 +54,7 @@ function reducer(state = initialState, action) {
             return{
             ...state,
             search_info: action.payload.search_info
-        } 
+        }
 
         default:
             return state;

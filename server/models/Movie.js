@@ -18,6 +18,9 @@ const MovieSchema = new Schema({
     id: {
         type: Number
     },
+    type:{
+        type: String
+    }
 });
 
 const Movie = mongoose.model('movies', MovieSchema);

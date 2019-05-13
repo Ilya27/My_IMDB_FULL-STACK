@@ -3,4 +3,4 @@ export{default as MoviesPage} from './MoviesPage/index';
 export{default as TvShowsPage} from './TvShowsPage/index';
 export {default as PeoplePage} from './PeoplePage';
 export {default as WrapperSearchPage} from './SearchPage';
-export {default as ProfilePage } from './ProfilePage'
+export {default as WrapperPage } from './ProfilePage'

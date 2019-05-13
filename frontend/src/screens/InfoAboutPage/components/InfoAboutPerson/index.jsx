@@ -3,6 +3,9 @@ import person_placeholder from '../../../../assets/img/person_placeholder.png';
 import placeholder from '../../../../assets/img/placeholder.jpg';
 import {Link} from 'react-router-dom';
 import './style.scss';
+import { Provider } from 'react-redux';
+import store from '../../../../store';
+import { AddButtonConnect } from '../../../../components';
 class InfoAboutPerson extends Component {
     state={
         info:[],
@@ -118,8 +121,6 @@ printKnowForShow(value){
 
     render() {
         const {info,movie_credits,show_credits}=this.state;
-        console.log(movie_credits);
-        
         return (
             <div className='info_about_person'>
                 <div className='main_info'>
@@ -127,6 +128,9 @@ printKnowForShow(value){
                         {this.checkPic(info.profile_path)}
                         <div className='biography'>
                             <h1>{info.name}</h1>
+                            <Provider store = {store }>
+                                <AddButtonConnect info={info} type={'persons'}/>
+                            </Provider>
                             <h3>Biography</h3>
                             <p>{info.biography}</p>
                         </div>

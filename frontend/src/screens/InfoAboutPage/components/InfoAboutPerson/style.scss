@@ -26,9 +26,73 @@
                     font-size: 1em;
                     line-height: 1.4em;
                 }
+                
+                & h1{
+                    margin-bottom: 10px;
+                }
+
+                & h3{
+                    margin-top: 15px;
+                }
+
+
+                & .guestLinks{
+                    cursor: default;
+                    border: 2px solid gray;
+                    box-sizing: border-box;
+                    background: rgba(0,0,0,0.2);
+                    color: #000;
+                    border-radius: 50%;
+                    width: 46px;
+                    height: 46px;
+                    padding-right: 2px;
+                    display: inline-flex;
+                    position: relative;
+            
+                    & .icon{
+                        color: gray;
+                        position: absolute;
+                        transition: .3s linear; 
+                        top: 10px; 
+                        left: 11px; 
+            
+                    }
+                }
+                
+                & .authLinks{
+                    border: 2px solid  black;
+                    box-sizing: border-box;
+                    background:  #eee;
+                    color: #000;
+                    border-radius: 50%;
+                    width: 46px;
+                    height: 46px;
+                    padding-right: 2px;
+                    display: inline-flex;
+                    position: relative;
+            
+                    & .icon{
+                        color: black;
+                        position: absolute;
+                        transition: .3s linear; 
+                        top: 10px; 
+                        left: 11px; 
+            
+                    }
+                }    
+                .authLinks:hover{
+                    border: 2px solid  green;
+                    background:green;
+                    transition: .3s linear; 
+                    & .icon{
+                        color:white; 
+                    }
+                }
+            }
             }
         }
-    }
+
+    
 
     & .addition_info{
         display: flex;

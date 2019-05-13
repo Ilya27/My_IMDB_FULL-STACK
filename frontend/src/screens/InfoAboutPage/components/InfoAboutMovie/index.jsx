@@ -4,7 +4,7 @@ import person_placeholder from '../../../../assets/img/person_placeholder.png';
 import placeholder from '../../../../assets/img/placeholder.jpg';
 import './style.scss';
 import moment from'moment' ;
-import { AddButtonConnect } from '../../../../components';
+import { AddButtonConnect} from '../../../../components';
 import { Provider } from 'react-redux';
 import store from '../../../../store';
 class InfoAboutMovie extends Component {
@@ -124,19 +124,15 @@ class InfoAboutMovie extends Component {
                 {this.checkPic(info.poster_path)}
                     <div className='main_info__text'>
                         <h1>{info.title}<p className='date'>({this.fullDateToYear(info.release_date)})</p></h1>
-                            {/* // <div className='container_circle'>
-                            //     {this.checkValue(value.vote_average)}
-                            //     <b>User Score</b>
-                            // </div> */}
+                        <Provider store = {store }>
+                            <AddButtonConnect info={info} type={'movies'}/>
+                        </Provider>
                         <h2>Overview</h2>
                         <p>{info.overview}</p>
                         <h2>Featured Crew</h2>
                         <div className='crew'>
                             {this.printCrew(crew)}
                         </div>
-                        <Provider store = {store }>
-                            <AddButtonConnect info={info}/>
-                        </Provider>
                     </div>
                 </div>
                 <div className='additional_info'>

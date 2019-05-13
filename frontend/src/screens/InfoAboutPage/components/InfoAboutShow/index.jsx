@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom';
 import moment from'moment' ;
 import person_placeholder from '../../../../assets/img/person_placeholder.png';
 import placeholder from '../../../../assets/img/placeholder.jpg';
+import { AddButtonConnect } from '../../../../components';
 import './style.scss';
+import { Provider } from 'react-redux';
+import store from '../../../../store';
 class InfoAboutShow extends Component {
     state={
         info:[],
@@ -132,6 +135,9 @@ class InfoAboutShow extends Component {
                 {this.checkPic(info.poster_path)}
                 <div className='main_info__text'>
                     <h1>{info.name}<p className='date'>({this.fullDateToYear(info.first_air_date)})</p></h1>
+                    <Provider store = {store }>
+                        <AddButtonConnect info={info} type={'shows'}/>
+                    </Provider>
                     <h2>Overview</h2>
                     <p>{info.overview}</p>
                     <h2>Featured Crew</h2>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
+import './login.scss'
 
 class Login extends Component {
 
@@ -34,15 +35,12 @@ class Login extends Component {
 
     componentDidMount() {
         if(this.props.auth.isAuthenticated) {
-            console.log(this.props.history);
-            
             this.props.history.push('/');
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if(nextProps.auth.isAuthenticated) {
-            console.log(this.props.history);
             this.props.history.push('/')
         }
         if(nextProps.errors) {
@@ -53,10 +51,9 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.props);
         const {errors} = this.state;
         return(
-        <div className="container" style={{ marginTop: '50px', width: '700px'}}>
+        <div className="login_page" style={{ marginTop: '50px'}}>
             <h2 style={{marginBottom: '40px'}}>Login</h2>
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
@@ -69,6 +66,7 @@ class Login extends Component {
                     name="email"
                     onChange={ this.handleInputChange }
                     value={ this.state.email }
+                    autoComplete="new-password"
                     />
                     {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                 </div>
@@ -82,6 +80,7 @@ class Login extends Component {
                     name="password"
                     onChange={ this.handleInputChange }
                     value={ this.state.password }
+                    autoComplete="new-password"
                     />
                     {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
