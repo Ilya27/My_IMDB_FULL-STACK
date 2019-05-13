@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {SET_WATCHLIST_SHOW,SET_FAVORITE_SHOW,SET_WATCHED_SHOW } from '../actions/types';
 export const getShowWatchList = (id) => dispatch => {
-    axios.get('http://localhost:4000/api/shows/getShow/List',{
+    axios.get('http://localhost:4000/api/shows/getShows/List',{
         params: {
         userId: id,
         type: "Want to watch"}
@@ -12,7 +12,7 @@ export const getShowWatchList = (id) => dispatch => {
     }
 
 export const getShowFavoriteList = (id) => dispatch => {
-    axios.get('http://localhost:4000/api/shows/getShow/List',{
+    axios.get('http://localhost:4000/api/shows/getShows/List',{
         params: {
             userId: id,
             type: "Favorite"}
@@ -26,7 +26,7 @@ export const getShowFavoriteList = (id) => dispatch => {
         
 
  export const getShowWatchedList = (id) => dispatch => {
-     axios.get('http://localhost:4000/api/shows/getShow/List',{
+     axios.get('http://localhost:4000/api/shows/getShows/List',{
          params: {
             userId: id,
             type: "Watched"}

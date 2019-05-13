@@ -1,0 +1,223 @@
+.favoriteListPage{
+    min-height: 664px;
+    & .favoriteListPage_movie{
+        & .title{
+            text-align: left;
+            
+        }
+        & .favoriteListMovie{
+            display: flex;
+            flex-wrap: wrap;
+            & .movie_block{
+                margin-top: 15px;
+                margin-right: 45px;
+                margin-bottom: 5px;
+                min-height: 185px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                background-color: #fff;
+                display: flex;
+                width: 40%; 
+                & img{
+                    height: 100%;
+                    min-width: 184px;
+                    min-height: 185px;
+                }
+    
+                & .info{
+                    margin-left: 15px;
+                    margin-right: 15px;
+                    & p{
+                        color: #4d4d4d;
+                        font-size: 0.9em;
+                        line-height: 1.2em;
+    
+                        text-align: left;
+                    }
+                    & h3{
+                        margin: 0;
+                        margin-top: 15px;
+                        text-align: left;
+                        font-weight: 600;
+                        font-size: 1.1em;
+                        line-height: 1.1em;
+                        color: #000;
+                    }
+    
+                    & a{
+                        float: left;
+                        color: #000;
+                        text-shadow: 0px 0px 0 #000;
+                    }
+                }
+            }
+        }
+    }
+    & .favoriteListPage_show{
+        margin-bottom: 15px;
+        & .title{
+            text-align: left;
+        }
+        & .favoriteListShow{
+            display: flex;
+            flex-wrap: wrap;
+            & .show_block{
+                margin-top: 15px;
+                margin-right: 45px;
+                margin-bottom: 5px;
+                min-height: 185px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                background-color: #fff;
+                display: flex;
+                width: 40%; 
+                & img{
+                    height: 100%;
+                    min-width: 184px;
+                    min-height: 185px;
+                }
+    
+                & .info{
+                    margin-left: 15px;
+                    margin-right: 15px;
+                    & p{
+                        color: #4d4d4d;
+                        font-size: 0.9em;
+                        line-height: 1.2em;
+    
+                        text-align: left;
+                    }
+                    & h3{
+                        margin: 0;
+                        margin-top: 15px;
+                        text-align: left;
+                        font-weight: 600;
+                        font-size: 1.1em;
+                        line-height: 1.1em;
+                        color: #000;
+                    }
+
+                    & a{
+                        float: left;
+                        color: #000;
+                        text-shadow: 0px 0px 0 #000;
+                    }
+    
+                }
+            }
+        }
+    }
+    & .favoriteListPage_person{
+        margin-bottom: 15px;
+        & .title{
+            text-align: left;
+        }
+        & .favoriteListPerson{
+            display: flex;
+            flex-wrap: wrap;
+            & .person_block{
+                margin-top: 15px;
+                margin-right: 45px;
+                margin-bottom: 5px;
+                min-height: 185px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                background-color: #fff;
+                display: flex;
+                width: 40%; 
+                & img{
+                    height: 100%;
+                    min-width: 184px;
+                    min-height: 185px;
+                }
+    
+                & .info{
+                    margin-left: 15px;
+                    margin-right: 15px;
+                    & p{
+                        color: #4d4d4d;
+                        font-size: 0.9em;
+                        line-height: 1.2em;
+    
+                        text-align: left;
+                    }
+                    & h3{
+                        margin: 0;
+                        margin-top: 15px;
+                        text-align: left;
+                        font-weight: 600;
+                        font-size: 1.1em;
+                        line-height: 1.1em;
+                        color: #000;
+                    }
+
+                    & a{
+                        float: left;
+                        color: #000;
+                        text-shadow: 0px 0px 0 #000;
+                    }
+    
+                }
+            }
+        }
+    }
+        
+    & .removeButton{
+        color:black;
+        display: inline;
+        margin-right: 15px;
+        margin-top: 10px;
+        margin-left: -5px;
+    }
+
+    & .removeButton:hover{
+        transition: .3s linear; 
+        color: red;
+    }
+
+    a{
+        color:black;
+    }
+    & .review{
+        color:  #acacac;
+        bottom: 0;
+        margin-bottom: 5px;
+        & textarea{
+            
+            border:1px solid #acacac;
+            resize: none;
+            padding: 5px;
+            // width: 200%;
+            height: 50px;
+            color:  #acacac;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: 400;
+            font-style: italic;
+            outline: none;
+        }
+
+        & textarea::placeholder{
+            color:  #acacac;
+        }
+    }
+    & button{
+        border: none;
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+        // padding: .8em 1em calc(.8em + 3px);
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 3px;
+        background: rgb(64,199,129);
+        box-shadow: 0 -3px rgb(53,167,110) inset;
+        transition: 0.2s;
+        float: right;
+        margin-top:14px;
+        margin-bottom: 8px;
+      } 
+      & button:hover { background: rgb(53, 167, 110); }
+      & button:active {
+        background: rgb(33,147,90);
+        box-shadow: 0 3px rgb(33,147,90) inset;
+    }
+}
+

@@ -1,0 +1,46 @@
+.guestLinks{
+    margin-top: 30px;
+    margin-right: -175px;
+    & a{
+        margin-right: 15px;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1em;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    & a:hover{
+        color: #868e91;
+    }
+}
+
+.authLinks{
+    margin-top: 30px;
+    margin-right: -155px;
+    & a{
+        margin-right: 15px;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1em;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    & a:hover{
+        color: #868e91;
+    }
+
+    & .link_Logout{
+        display: inline-block;
+        margin-top: -25px;
+    }
+
+    & img{
+        margin-bottom: -8px;
+    }
+}

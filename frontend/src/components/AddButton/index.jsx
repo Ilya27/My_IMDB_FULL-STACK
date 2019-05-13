@@ -2,37 +2,46 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import IcoMoon from 'react-icomoon';
 class AddButton extends Component {
-    handleClick(movie,userId,type) {
+    handleClick(info,userId,type) {
         let fullInfo={};
-        for (var key in movie) {
-            fullInfo[key] = movie[key];
+        for (var key in info) {
+            fullInfo[key] = info[key];
         }
         fullInfo.userId=userId;
+        if(type==='shows'){
+            fullInfo.isShow=true;
+        }
         if(type==='persons'){
             fullInfo.type='Favorite';  
         }else{
             fullInfo.type="Want to watch";
         }
+        console.log(fullInfo);
         axios.post(`http://localhost:4000/api/${type}/add`, fullInfo)
             .then()
             .catch(err => {
-                alert('You have already added this person')
-        }); 
+                alert('You have already added this')
+        });    
     }
+    checkIcon(type){
+        if(type==='persons'){
+            return <IcoMoon  className='star-full' icon="star-full" /> 
+        }else{
+            return <IcoMoon icon="bookmark" />
+        }
+    }
+
     render() {
         const {isAuthenticated,user} = this.props.auth;
-        console.log(user);
         
         const authLinks = (
-            <ul>
-                <button onClick={() =>this.handleClick(this.props.info,user.id,this.props.type)}>CLICK</button>
-            </ul>
+            <Link title="Add to your watchlist" className='authLinks' onClick={() =>this.handleClick(this.props.info,user.id,this.props.type)}><span></span>{this.checkIcon(this.props.type)}</Link>
         )
         const guestLinks = (
-            <ul>
-                <button  disabled={true}>CLICK</button>
-            </ul>
+            <Link title="Sign in to add to your watchlist " className='guestLinks'>{this.checkIcon(this.props.type)}</Link>
         )
 
         return (

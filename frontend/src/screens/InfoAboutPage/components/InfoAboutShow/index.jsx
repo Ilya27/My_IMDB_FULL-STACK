@@ -135,15 +135,15 @@ class InfoAboutShow extends Component {
                 {this.checkPic(info.poster_path)}
                 <div className='main_info__text'>
                     <h1>{info.name}<p className='date'>({this.fullDateToYear(info.first_air_date)})</p></h1>
+                    <Provider store = {store }>
+                        <AddButtonConnect info={info} type={'shows'}/>
+                    </Provider>
                     <h2>Overview</h2>
                     <p>{info.overview}</p>
                     <h2>Featured Crew</h2>
                     <div className='crew'>
                         {this.printCrew(crew,info.created_by)}
                     </div>
-                    <Provider store = {store }>
-                        <AddButtonConnect info={info} type={'shows'}/>
-                    </Provider>
                 </div>
             </div>
             <div className='additional_info'>

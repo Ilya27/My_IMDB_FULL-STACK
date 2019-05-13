@@ -2,7 +2,7 @@ import axios from 'axios';
 import { GET_ERRORS, SET_CURRENT_USER } from './types';
 import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
-
+import {getReviewList} from './review'
 export const registerUser = (user, history) => dispatch => {
     axios.post('http://localhost:4000/api/users/register', user)
             .then(res => history.push('/login'))
@@ -21,6 +21,8 @@ export const loginUser = (user) => dispatch => {
                 localStorage.setItem('jwtToken', token);
                 setAuthToken(token);
                 const decoded = jwt_decode(token);
+                console.log(decoded.id);
+                dispatch(getReviewList(decoded.id));
                 dispatch(setCurrentUser(decoded));
             })
             .catch(err => {
@@ -44,6 +46,8 @@ export const logoutUser = (history) => dispatch => {
     setAuthToken(false);
     dispatch(setCurrentUser({}));
     if(history){
-        history.push('/login');
+        history.push('/');
+    }else{
+       return null;
     }
 }

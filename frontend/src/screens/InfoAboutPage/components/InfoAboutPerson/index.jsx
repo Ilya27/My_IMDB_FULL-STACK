@@ -121,8 +121,6 @@ printKnowForShow(value){
 
     render() {
         const {info,movie_credits,show_credits}=this.state;
-        console.log(movie_credits);
-        
         return (
             <div className='info_about_person'>
                 <div className='main_info'>
@@ -130,11 +128,11 @@ printKnowForShow(value){
                         {this.checkPic(info.profile_path)}
                         <div className='biography'>
                             <h1>{info.name}</h1>
-                            <h3>Biography</h3>
-                            <p>{info.biography}</p>
                             <Provider store = {store }>
                                 <AddButtonConnect info={info} type={'persons'}/>
                             </Provider>
+                            <h3>Biography</h3>
+                            <p>{info.biography}</p>
                         </div>
                     </div>
                 </div>

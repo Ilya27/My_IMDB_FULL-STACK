@@ -13,6 +13,59 @@
     margin-bottom: 35px;
 }
 .main_info__text{
+    & .guestLinks{
+        cursor: default;
+        border: 2px solid gray;
+        box-sizing: border-box;
+        background: rgba(0,0,0,0.2);
+        color: #000;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        padding-right: 2px;
+        display: inline-flex;
+        position: relative;
+
+        & .icon{
+            color: gray;
+            position: absolute;
+            transition: .3s linear; 
+            top: 12px; 
+            left: 11px; 
+
+        }
+    }
+    
+    & .authLinks{
+        border: 2px solid white;
+        box-sizing: border-box;
+        background: rgba(0,0,0,0.2);
+        color: #000;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        padding-right: 2px;
+        display: inline-flex;
+        position: relative;
+
+        & .icon{
+            color: white;
+            position: absolute;
+            transition: .3s linear; 
+            top: 12px; 
+            left: 11px; 
+
+        }
+    }
+
+    
+    .authLinks:hover{
+        background:white;
+        transition: .3s linear; 
+        & .icon{
+            color:black; 
+        }
+    }
     position: relative;
     margin-right: 23%;
     margin-top: 15px;
@@ -22,6 +75,7 @@
         line-height: 1.1em;
         font-weight: 600;
         display: inline-block;
+        margin-bottom: 10px;
     }
 
     & .date{

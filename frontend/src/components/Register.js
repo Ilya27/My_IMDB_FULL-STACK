@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { registerUser } from '../actions/authentication';
 import classnames from 'classnames';
-
+import './register.scss'
 class Register extends Component {
 
     constructor() {
@@ -56,20 +56,23 @@ class Register extends Component {
 
     render() {
         const { errors } = this.state;
+        console.log(errors);
+        
         return(
-        <div className="container" style={{ marginTop: '50px', width: '700px'}}>
+        <div className="register" style={{ marginTop: '50px', width: '700px'}}>
             <h2 style={{marginBottom: '40px'}}>Registration</h2>
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
                     <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Login"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.name
                     })}
                     name="name"
                     onChange={ this.handleInputChange }
                     value={ this.state.name }
+                    autoComplete="new-password"
                     />
                     {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                 </div>
@@ -83,6 +86,7 @@ class Register extends Component {
                     name="email"
                     onChange={ this.handleInputChange }
                     value={ this.state.email }
+                    autoComplete="new-password"
                     />
                     {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                 </div>
@@ -96,6 +100,7 @@ class Register extends Component {
                     name="password"
                     onChange={ this.handleInputChange }
                     value={ this.state.password }
+                    autoComplete="new-password"
                     />
                     {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
@@ -109,6 +114,7 @@ class Register extends Component {
                     name="password_confirm"
                     onChange={ this.handleInputChange }
                     value={ this.state.password_confirm }
+                    autoComplete="new-password"
                     />
                     {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
                 </div>

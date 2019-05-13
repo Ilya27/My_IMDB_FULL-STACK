@@ -124,19 +124,15 @@ class InfoAboutMovie extends Component {
                 {this.checkPic(info.poster_path)}
                     <div className='main_info__text'>
                         <h1>{info.title}<p className='date'>({this.fullDateToYear(info.release_date)})</p></h1>
-                            {/* // <div className='container_circle'>
-                            //     {this.checkValue(value.vote_average)}
-                            //     <b>User Score</b>
-                            // </div> */}
+                        <Provider store = {store }>
+                            <AddButtonConnect info={info} type={'movies'}/>
+                        </Provider>
                         <h2>Overview</h2>
                         <p>{info.overview}</p>
                         <h2>Featured Crew</h2>
                         <div className='crew'>
                             {this.printCrew(crew)}
                         </div>
-                        <Provider store = {store }>
-                            <AddButtonConnect info={info} type={'movies'}/>
-                        </Provider>
                     </div>
                 </div>
                 <div className='additional_info'>
