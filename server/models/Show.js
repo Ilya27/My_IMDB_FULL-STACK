@@ -9,6 +9,9 @@ const ShowSchema = new Schema({
     name: {
         type: String,
     },
+    overview:{
+        type: String,
+    },
     poster_path: {
         type: String,
     },
@@ -20,6 +23,9 @@ const ShowSchema = new Schema({
     },
     type:{
         type: String
+    },
+    isShow:{
+        type:Boolean
     }
 });
 

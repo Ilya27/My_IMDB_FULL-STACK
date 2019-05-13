@@ -4,6 +4,7 @@ const router = express.Router();
 const Movie = require('../models/Movie');
 
 router.post('/add', function(req, res) {
+    console.log(req.body.userId);
     Movie.findOne({
         id: req.body.id,
         userId:req.body.userId,
@@ -16,6 +17,7 @@ router.post('/add', function(req, res) {
             const newMovie = new Movie({
                 userId:req.body.userId,
                 title: req.body.title,
+                overview:req.body.overview,
                 poster_path: req.body.poster_path,
                 runtime: req.body.runtime,
                 id:req.body.id,
@@ -34,17 +36,15 @@ router.get("/getMovies/List", function(req, res){
     Movie.find({
         userId: req.query.userId,
         type: req.query.type
-    }, async function(err, movie){
+    }, function(err, movie){
         if(err) return console.log(err);
-        console.log(movie);
-        await res.send(movie);
-        
+        res.send(movie);
     });
 });
 
 
 
-router.put("/updateMovies/List", function(req, res){
+router.put("/updateMovies/Watched", function(req, res){
     Movie.findOne({
         userId: req.body.userId,
         title:req.body.title,
@@ -54,11 +54,40 @@ router.put("/updateMovies/List", function(req, res){
         movie
         .save()
         .then(movie=>{
+            res.json(movie);
+        })
+    });
+});
+
+router.put("/updateMovies/Favorite", function(req, res){
+    Movie.findOne({
+        userId: req.body.userId,
+        title:req.body.title,
+    },function(err, movie){
+        if(err) return console.log(err);
+        movie.type="Favorite";
+        movie
+        .save()
+        .then(movie=>{
             console.log(movie);
             res.json(movie);
         })
     });
 });
+
+router.delete('/remove', function(req, res) {
+    Movie.findByIdAndRemove({
+        _id: req.query._id,
+    },function(err, movie){
+        if(err) return console.log(err);
+        movie
+        .remove()
+        .then(movie=>{
+            res.json(movie);
+        })
+    });
+});
+
 
 
 

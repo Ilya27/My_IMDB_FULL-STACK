@@ -9,12 +9,12 @@ const PersonSchema = new Schema({
     name: {
         type: String,
     },
-    // poster_path: {
-    //     type: String,
-    // },
-    // runtime: {
-    //     type: Number,
-    // },
+    biography:{
+        type:String
+    },
+    profile_path:{
+        type:String
+    },
     id: {
         type: Number
     },
