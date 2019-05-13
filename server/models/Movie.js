@@ -9,6 +9,9 @@ const MovieSchema = new Schema({
     title: {
         type: String,
     },
+    overview:{
+        type: String,
+    },
     poster_path: {
         type: String,
     },

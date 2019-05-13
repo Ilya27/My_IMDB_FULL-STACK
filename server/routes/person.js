@@ -16,8 +16,8 @@ router.post('/add', function(req, res) {
             const newPerson = new Person({
                 userId:req.body.userId,
                 name: req.body.name,
-                // poster_path: req.body.poster_path,
-                // runtime: req.body.runtime,
+                profile_path: req.body.profile_path,
+                biography: req.body.biography,
                 id:req.body.id,
                 type:req.body.type
             });
@@ -29,6 +29,23 @@ router.post('/add', function(req, res) {
         }
     });
 });
+
+router.delete('/remove', function(req, res) {
+    console.log(req.query._id);
+    
+    Person.findByIdAndRemove({
+        _id: req.query._id,
+    },function(err, person){
+        if(err) return console.log(err);
+        person
+        .remove()
+        .then(person=>{
+            console.log(person);
+            res.json(person);
+        })
+    });
+});
+
 
 
 router.get("/getPerson/List", function(req, res){
